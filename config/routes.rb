@@ -1,4 +1,20 @@
 NonScaffoldedRails::Application.routes.draw do
+
+  root :to => 'info#index'
+
+  match 'about_us' => 'info#about', :as => 'about'
+
+  match 'contact_us' => 'info#contact', :as => 'contact'
+
+  match 'posts' => 'posts#index', :as => 'blog', :via => :get
+
+  match 'posts/:id' => 'posts#show', :as => 'post', :via => :get
+
+  match 'posts/new' => 'posts#new', :as => 'new_post', :via => :get
+
+  match 'posts' => 'posts#create' :as => 'create_post', :via => :post
+  #Only execute the create action if we POST to /posts
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
