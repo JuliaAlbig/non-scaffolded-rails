@@ -15,6 +15,10 @@ NonScaffoldedRails::Application.routes.draw do
   match 'posts/:id' => 'posts#destroy', :as =>'destroy_post', :via => :delete
 
   match 'posts' => 'posts#create', :as => 'create_post', :via => :post
+
+  match 'posts/:id/edit' => 'posts#edit', :as => 'edit_post', :via => :get
+
+  match 'posts/:id' => 'posts#update', :as => 'update_post', :via => :put 
   #Only execute the create action if we POST to /posts
 
   # The priority is based upon order of creation:
